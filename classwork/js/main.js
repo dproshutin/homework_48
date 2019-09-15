@@ -26,6 +26,9 @@ $(function() {
             .then(function(res) {
                 updateDateOfLastMessage(res);
             })
+            .catch(function(error){
+                console.log(error);
+            });
     };
 
     getMessages(endpointUrl);
@@ -65,7 +68,10 @@ $(function() {
         var author = $("#author").val();
         var message = $("#message").val();
         var newPost = {author: author, message: message};
-        $.post("http://146.185.154.90:8000/messages", newPost);
+        $.post("http://146.185.154.90:8000/messages", newPost)
+            .catch(function(error){
+                console.log(error);
+            });
     }
 
     setInterval(function(){
